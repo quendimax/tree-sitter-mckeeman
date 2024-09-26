@@ -1,0 +1,34 @@
+===
+the one
+===
+bye
+hello
+    ""
+hello
+    'a' 'a' . 'b' - '1000' - 'a' - 'c' 'a' 'a'
+
+---
+(grammar
+      (rule
+        (name))
+      (rule
+        (name)
+        (nothing))
+      (rule
+        (name)
+        (literal
+          (singleton))
+        (literal
+          (range
+            (singleton)
+            (singleton))
+          (exclude
+            (singleton))
+          (exclude
+            (singleton))
+          (exclude
+            (singleton)))
+        (literal
+          (singleton))
+        (literal
+          (singleton))))

@@ -1,0 +1,250 @@
+{
+  "name": "mckeeman",
+  "rules": {
+    "grammar": {
+      "type": "SYMBOL",
+      "name": "rules"
+    },
+    "rules": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "rule"
+      }
+    },
+    "rule": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "name"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_lf"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "name"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_lf"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "alternatives"
+            }
+          ]
+        }
+      ]
+    },
+    "alternatives": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "alternative"
+      }
+    },
+    "alternative": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_indentation"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "items"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_lf"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_indentation"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "nothing"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_lf"
+            }
+          ]
+        }
+      ]
+    },
+    "items": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "item"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": " "
+              },
+              {
+                "type": "SYMBOL",
+                "name": "item"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "item": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        }
+      ]
+    },
+    "literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "singleton"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "range"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "exclude"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "range": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "singleton"
+        },
+        {
+          "type": "STRING",
+          "value": " . "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "singleton"
+        }
+      ]
+    },
+    "exclude": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " - "
+            },
+            {
+              "type": "SYMBOL",
+              "name": "singleton"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": " - "
+            },
+            {
+              "type": "SYMBOL",
+              "name": "range"
+            }
+          ]
+        }
+      ]
+    },
+    "_lf": {
+      "type": "PATTERN",
+      "value": "\\n|\\r\\n"
+    },
+    "name": {
+      "type": "PATTERN",
+      "value": "[_a-zA-Z]+"
+    },
+    "_indentation": {
+      "type": "PATTERN",
+      "value": " {4}"
+    },
+    "singleton": {
+      "type": "PATTERN",
+      "value": "'([\\u{20}-\\u{10FFFF}]|(10|[0-9A-F])?[0-9A-F]{4})'",
+      "flags": "u"
+    },
+    "string": {
+      "type": "PATTERN",
+      "value": "\"[\\u{20}-\\u{21}\\u{23}-\\u{10FFFF}]+\"",
+      "flags": "u"
+    },
+    "nothing": {
+      "type": "STRING",
+      "value": "\"\""
+    }
+  },
+  "extras": [],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [
+    "rules",
+    "alternatives",
+    "alternative",
+    "items",
+    "item"
+  ],
+  "supertypes": []
+}
