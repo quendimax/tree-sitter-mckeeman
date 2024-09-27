@@ -10,8 +10,18 @@
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js"
   },
+  "keywords": ["mkf", "mckeeman", "grammar", "tree-sitter"],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
+  ],
   "author": "Maksim Tomkavich",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "node-addon-api": "^8.0.0",
     "node-gyp-build": "^4.8.1"
@@ -28,21 +38,12 @@
     "tree-sitter-cli": "^0.23.0",
     "prebuildify": "^6.0.1"
   },
-  "keywords": ["mkf", "mckeeman", "grammar", "tree-sitter"],
-  "files": [
-    "grammar.js",
-    "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**",
-    "*.wasm"
-  ],
   "tree-sitter": [
     {
       "scope": "source.mckeeman",
+      "file-types": ["mkf"],
       "injection-regex": "^mckeeman$",
-      "file-types": ["mkf"]
+      "highlights": "queries/highlights.scm"
     }
   ]
 }

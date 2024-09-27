@@ -8,8 +8,17 @@
     "rules": {
       "type": "REPEAT1",
       "content": {
-        "type": "SYMBOL",
-        "name": "rule"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "rule"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[ \\t]*(\\n|\\r\\n)"
+          }
+        ]
       }
     },
     "rule": {
@@ -24,7 +33,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_lf"
+              "name": "_eol"
             }
           ]
         },
@@ -37,7 +46,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_lf"
+              "name": "_eol"
             },
             {
               "type": "SYMBOL",
@@ -70,7 +79,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_lf"
+              "name": "_eol"
             }
           ]
         },
@@ -87,7 +96,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "_lf"
+              "name": "_eol"
             }
           ]
         }
@@ -212,6 +221,10 @@
       "type": "PATTERN",
       "value": "\\n|\\r\\n"
     },
+    "_eol": {
+      "type": "PATTERN",
+      "value": "[ \\t]*(\\n|\\r\\n)"
+    },
     "name": {
       "type": "PATTERN",
       "value": "[_a-zA-Z]+"
@@ -233,9 +246,19 @@
     "nothing": {
       "type": "STRING",
       "value": "\"\""
+    },
+    "_comment": {
+      "type": "PATTERN",
+      "value": "[ \\t]*;[\\u{20}-\\u{10FFFF}]*",
+      "flags": "u"
     }
   },
-  "extras": [],
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "_comment"
+    }
+  ],
   "conflicts": [],
   "precedences": [],
   "externals": [],

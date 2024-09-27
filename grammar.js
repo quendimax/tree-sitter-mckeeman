@@ -1,7 +1,7 @@
 module.exports = grammar({
   name: 'mckeeman',
   
-  extras: $ => [],
+  extras: $ => [$._comment],
   
   inline: $ => [$.rules, $.alternatives, $.alternative, $.items, $.item],
 
@@ -9,18 +9,21 @@ module.exports = grammar({
     // syntax
     grammar: $ => $.rules,
 
-    rules: $ => repeat1($.rule),
+    rules: $ => repeat1(choice(
+      $.rule,
+      /[ \t]*(\n|\r\n)/   // empty line
+    )),
 
     rule: $ => choice(
-      seq($.name, $._lf),
-      seq($.name, $._lf, $.alternatives)
+      seq($.name, $._eol),
+      seq($.name, $._eol, $.alternatives)
     ),
     
     alternatives: $ => repeat1($.alternative),
     
     alternative: $ => choice(
-      seq($._indentation, $.items, $._lf),
-      seq($._indentation, $.nothing, $._lf),
+      seq($._indentation, $.items, $._eol),
+      seq($._indentation, $.nothing, $._eol),
     ),
     
     items: $ => seq($.item, repeat(seq(' ', $.item))),
@@ -47,6 +50,8 @@ module.exports = grammar({
     
     _lf: $ => /\n|\r\n/,
     
+    _eol: $ => /[ \t]*(\n|\r\n)/,  // end of line
+    
     name: $ => /[_a-zA-Z]+/,
     
     _indentation: $ => / {4}/,
@@ -55,6 +60,8 @@ module.exports = grammar({
     
     string: $ => /"[\u{20}-\u{21}\u{23}-\u{10FFFF}]+"/u,
     
-    nothing: $ => '""'
+    nothing: $ => '""',
+    
+    _comment: $ => /[ \t]*;[\u{20}-\u{10FFFF}]*/u
   }
 });

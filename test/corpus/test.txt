@@ -1,11 +1,22 @@
 ===
 the one
 ===
-bye
+bye  
 hello
     ""
 hello
     'a' 'a' . 'b' - '1000' - 'a' - 'c' 'a' 'a'
+
+    
+
+hello   ; hello
+
+hello;
+hello
+    ;
+    
+hello
+    ""
 
 ---
 (grammar
@@ -31,4 +42,13 @@ hello
         (literal
           (singleton))
         (literal
-          (singleton))))
+          (singleton)))
+      (rule
+        (name))
+      (rule
+        (name))
+      (rule
+        (name))
+      (rule
+        (name)
+        (nothing)))
