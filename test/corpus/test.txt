@@ -44,11 +44,14 @@ hello
         (literal
           (singleton)))
       (rule
-        (name))
+        (name)
+        (comment))
+      (rule
+        (name)
+        (comment))
       (rule
         (name))
-      (rule
-        (name))
+      (comment)
       (rule
         (name)
         (nothing)))

@@ -247,7 +247,7 @@
       "type": "STRING",
       "value": "\"\""
     },
-    "_comment": {
+    "comment": {
       "type": "PATTERN",
       "value": "[ \\t]*;[\\u{20}-\\u{10FFFF}]*",
       "flags": "u"
@@ -256,7 +256,7 @@
   "extras": [
     {
       "type": "SYMBOL",
-      "name": "_comment"
+      "name": "comment"
     }
   ],
   "conflicts": [],

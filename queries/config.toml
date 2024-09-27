@@ -1,4 +1,4 @@
-name = "McKeeman"
+name = "McKeeman Form"
 grammar = "mkf"
 path_suffixes = ["*.mkf"]
 line_comment = [";"]

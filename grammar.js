@@ -1,7 +1,7 @@
 module.exports = grammar({
   name: 'mckeeman',
   
-  extras: $ => [$._comment],
+  extras: $ => [$.comment],
   
   inline: $ => [$.rules, $.alternatives, $.alternative, $.items, $.item],
 
@@ -62,6 +62,6 @@ module.exports = grammar({
     
     nothing: $ => '""',
     
-    _comment: $ => /[ \t]*;[\u{20}-\u{10FFFF}]*/u
+    comment: $ => /[ \t]*;[\u{20}-\u{10FFFF}]*/u
   }
 });

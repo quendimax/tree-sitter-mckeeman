@@ -111,6 +111,10 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "name",
     "named": true
   },

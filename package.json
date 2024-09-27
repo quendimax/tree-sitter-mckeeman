@@ -10,7 +10,7 @@
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js"
   },
-  "keywords": ["mkf", "mckeeman", "grammar", "tree-sitter"],
+  "keywords": ["grammar", "tree-sitter"],
   "files": [
     "grammar.js",
     "binding.gyp",
