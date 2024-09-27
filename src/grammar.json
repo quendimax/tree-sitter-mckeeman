@@ -264,9 +264,7 @@
   "externals": [],
   "inline": [
     "rules",
-    "alternatives",
     "alternative",
-    "items",
     "item"
   ],
   "supertypes": []

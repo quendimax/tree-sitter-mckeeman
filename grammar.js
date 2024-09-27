@@ -3,7 +3,7 @@ module.exports = grammar({
   
   extras: $ => [$.comment],
   
-  inline: $ => [$.rules, $.alternatives, $.alternative, $.items, $.item],
+  inline: $ => [$.rules, $.alternative, $.item],
 
   rules: {
     // syntax

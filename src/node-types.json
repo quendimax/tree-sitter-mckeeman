@@ -1,5 +1,24 @@
 [
   {
+    "type": "alternatives",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "items",
+          "named": true
+        },
+        {
+          "type": "nothing",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "exclude",
     "named": true,
     "fields": {},
@@ -28,6 +47,25 @@
       "types": [
         {
           "type": "rule",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "items",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         }
       ]
@@ -84,15 +122,11 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "alternatives",
           "named": true
         },
         {
           "type": "name",
-          "named": true
-        },
-        {
-          "type": "nothing",
           "named": true
         }
       ]

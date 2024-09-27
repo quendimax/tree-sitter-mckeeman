@@ -4,6 +4,7 @@ the one
 bye  
 hello
     ""
+    bye
 hello
     'a' 'a' . 'b' - '1000' - 'a' - 'c' 'a' 'a'
 
@@ -20,13 +21,18 @@ hello
 
 ---
 (grammar
-      (rule
-        (name))
-      (rule
-        (name)
-        (nothing))
-      (rule
-        (name)
+  (rule
+    (name))
+  (rule
+    (name)
+    (alternatives
+      (nothing)
+      (items
+        (name))))
+  (rule
+    (name)
+    (alternatives
+      (items
         (literal
           (singleton))
         (literal
@@ -42,16 +48,17 @@ hello
         (literal
           (singleton))
         (literal
-          (singleton)))
-      (rule
-        (name)
-        (comment))
-      (rule
-        (name)
-        (comment))
-      (rule
-        (name))
-      (comment)
-      (rule
-        (name)
-        (nothing)))
+          (singleton)))))
+  (rule
+    (name)
+    (comment))
+  (rule
+    (name)
+    (comment))
+  (rule
+    (name))
+  (comment)
+  (rule
+    (name)
+    (alternatives
+      (nothing))))
