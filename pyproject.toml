@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tree-sitter-mckeeman"
-description = "Mckeeman grammar for tree-sitter"
+description = "McKeeman Form grammar for tree-sitter"
 version = "0.0.1"
 keywords = ["incremental", "parsing", "tree-sitter", "mckeeman"]
 classifiers = [

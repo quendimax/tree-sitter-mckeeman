@@ -1,5 +1,5 @@
 name = "McKeeman Form"
-grammar = "mkf"
+grammar = "mckeeman"
 path_suffixes = ["*.mkf"]
 line_comment = [";"]
 brackets = []
