@@ -4,7 +4,7 @@ the one
 bye  
 hello
     ""
-    bye
+    bye "string-bye"
 hello
     'a' 'a' . 'b' - '1000' - 'a' - 'c' 'a' 'a'
 
@@ -28,7 +28,8 @@ hello
     (alternatives
       (nothing)
       (items
-        (name))))
+        (name)
+        (literal (string)))))
   (rule
     (name)
     (alternatives
