@@ -1,8 +1,8 @@
 name = "McKeeman Form"
 grammar = "mckeeman"
-path_suffixes = ["*.mkf"]
+path_suffixes = ["mkf"]
 line_comment = [";"]
-brackets = []
-
-num = 5.0
-bool = true
+brackets = [
+    { start="\"", end="\"", close=true, newline=false, not_in=["string"] }
+]
+tab_size = 4
